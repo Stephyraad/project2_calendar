@@ -1,1 +1,8 @@
+<%= form_for @event do |f| %>
+	Date: <%= f.text_field :date %>
+	Event: <%= f.text_field :input %>
+	Location: <%= f.text_field :location %>
+	<%= f.select :event_type, [['Select One'],['Day Event'],['Night Event']]%>
 
+	<%= f.submit %>
+<% end %>

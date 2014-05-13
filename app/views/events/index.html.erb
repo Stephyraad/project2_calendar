@@ -1,2 +1,18 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<h1>All My Events</h1>
+
+
+<% @events.each do |b| %>
+  <ul>
+    <li>
+     
+        
+        <div><strong>Date</strong><br><%= b.date %></div>
+        <div><strong>Input</strong><br><%= b.input %></div>
+        <div><strong>Location</strong><br><%= b.location %></div>
+        <div><strong>Event Type</strong><br><%= b.event_type %></div></br>
+        <ul><%= link_to "Edit your event", edit_event_path(b) %>
+        <%= button_to "Delete", {:action => 'destroy', :id => b.id }, {:method => :delete, confirm: "Are you sure you want to delete this event"} %></ul>
+         
+    </li>
+  </ul>
+<% end %>
