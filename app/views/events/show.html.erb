@@ -1,0 +1,13 @@
+<h1>YOUR EVENT</h1>
+
+
+  <%= @event.date %><br>
+  <%= @event.input %><br>
+  <%= @event.location%><br>
+  
+
+  
+
+ <ul><%= link_to "Edit your event", edit_event_path %>
+  <%= button_to "Delete", {:action => 'destroy', :id => @event.id }, {:method => :delete, confirm: "Are you sure you want to delete this event"} %></ul>
+

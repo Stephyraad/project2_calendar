@@ -53,6 +53,7 @@ GEM
     execjs (2.0.2)
     genghis (1.4.1)
       mongo (>= 1.2.0)
+    gmaps4rails (2.1.2)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -135,6 +136,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.1.1)
   coffee-rails (~> 4.0.0)
   genghis (~> 1.4.1)
+  gmaps4rails
   jbuilder (~> 1.2)
   jquery-rails
   mongoid!

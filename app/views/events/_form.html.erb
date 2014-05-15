@@ -5,4 +5,8 @@
 	<%= f.select :event_type, [['Select One'],['Day Event'],['Night Event']]%>
 
 	<%= f.submit %>
+	<div class="back-btn">
+		<%= button_to "Go Back ", events_path %>
+  <%#= link_to 'Go Back', events_path, class: 'btn btn-default btn-lg' %>
+  <div>  
 <% end %>

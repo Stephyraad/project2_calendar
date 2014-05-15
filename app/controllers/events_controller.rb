@@ -3,15 +3,17 @@ class EventsController < ApplicationController
    before_action :authenticate_user
 
   def index
-  	@events= Event.all
+  	@events= current_user.events.all
   end
 
   def new
-  	@event= Event.new
+  	@event= current_user.events.new
   end
 
   def create
-    Event.create(params.require(:event).permit(:date, :input, :location, :event_type))
+    @event= Event.new(params.require(:event).permit(:date, :input, :location, :event_type))
+    @event.user = current_user
+    @event.save
     redirect_to events_path
   end
 
@@ -20,7 +22,8 @@ class EventsController < ApplicationController
    
   end
 
-  def view
+  def show
+    @event = Event.find(params[:id])
   end
 
   def update
