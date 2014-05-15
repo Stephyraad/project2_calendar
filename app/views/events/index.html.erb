@@ -9,9 +9,12 @@
         <div><strong>Date</strong><br><%= b.date %></div>
         <div><strong>Input</strong><br><%= b.input %></div>
         <div><strong>Location</strong><br><%= b.location %></div>
+        <div><strong>Location</strong><br><%= b.address1%></div>
+        <div><br><%= b.address1%></div>
         <div><strong>Event Type</strong><br><%= b.event_type %></div></br>
         
        <ul><%= link_to "View", event_path(b) %></ul>
+       <ul><%= link_to "SHOW OTHER EVENTS",events_path(id: b.id, show: "all_users_events") %></ul>
         
          
     </li>

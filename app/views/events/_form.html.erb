@@ -1,10 +1,20 @@
 <%= form_for @event do |f| %>
-	Date: <%= f.text_field :date %>
-	Event: <%= f.text_field :input %>
-	Location: <%= f.text_field :location %>
-	<%= f.select :event_type, [['Select One'],['Day Event'],['Night Event']]%>
+	Date: <%= f.text_field :date, placeholder: "yyyy/mm//dd", class: 'date-control' %><br><br>
+	Event: <%= f.text_field :input %><br><br>
 
-	<%= f.submit %>
+	Location: <%= f.text_field :location%><br>
+
+	Address:<br> <%= f.text_field :address1, placeholder: "address line 1" %><br>
+	<%= f.text_field :city, placeholder: "City" %><br>
+	<%= f.text_field :state, placeholder: "State" %><br>
+	<%= f.text_field :zipcode, placeholder: "zip code" %><br>
+	
+
+
+
+	<%= f.select :event_type, [['Select One'],['Day Event'],['Night Event']]%><br>
+
+	<%= f.submit %><br>
 	<div class="back-btn">
 		<%= button_to "Go Back ", events_path %>
   <%#= link_to 'Go Back', events_path, class: 'btn btn-default btn-lg' %>

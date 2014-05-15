@@ -1,0 +1,24 @@
+$maincolor: lighten(#BE2625, 40%);
+
+@import 'bootstrap';
+
+th, td {
+	padding: 5px;
+}
+
+.table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
+   background-color: $maincolor;
+}
+
+.profile {
+	margin-top: 50px;
+	background-color: $maincolor;
+	border-radius: 15px;
+	padding: 10px;
+}
+
+#map-canvas {
+	height: 500px;
+	width: 500px;
+	margin: 0 auto;
+	}

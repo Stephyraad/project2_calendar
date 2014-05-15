@@ -1,8 +1,12 @@
 class Event
   include Mongoid::Document
-  field :date, type: Time
+  field :date, type: Date
   field :input, type: String
   field :location, type: String
+  field :address1, type: String
+  field :city, type: String
+  field :state, type: String
+  field :zipcode, type: String
   field :event_type, type: String
   belongs_to :user
   #validates_presence_of :date, :input, :year, :price, :transmission

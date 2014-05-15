@@ -3,7 +3,11 @@ class EventsController < ApplicationController
    before_action :authenticate_user
 
   def index
-  	@events= current_user.events.all
+    if params[:show] == "all_users_events"
+      @events= Event.all
+    else
+  	 @events= current_user.events.all
+    end
   end
 
   def new
@@ -11,7 +15,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event= Event.new(params.require(:event).permit(:date, :input, :location, :event_type))
+
+    @event= Event.new(params.require(:event).permit(:date, :input, :location, :address1, :city, :state, :zipcode, :event_type))
+    #raise @event.inspect
     @event.user = current_user
     @event.save
     redirect_to events_path
