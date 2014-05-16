@@ -16,15 +16,14 @@
         <div><strong>Event Type</strong><br><%= b.event_type %></div></br>
         
        <ul><%= link_to "View", event_path(b) %></ul>
-       <ul><%= link_to "SHOW OTHER EVENTS",events_path(id: b.id, show: "all_users_events") %></ul>
+      
         
          
     </li>
   </ul>
 <% end %>
-
- <script type="text/javascript">
-// document.getElementById("currentevent").onclick= function(){
+  <script type="text/javascript">
+//  document.getElementById("currentevent").onclick= function(){
 	
 // }
 </script>

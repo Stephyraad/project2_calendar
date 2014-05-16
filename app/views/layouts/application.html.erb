@@ -28,9 +28,17 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li id="currentevents"><%= link_to "View My Upcomings Events", events_path %></li>
-        <li><%= link_to "View My Past Events", events_path %></li>
+       
+        <li id="currentevents"><%= link_to "View My Upcomings Events", events_path(future: true) %></li>
+      
+        <li><%= link_to "View My Past Events", events_path(future: false) %></li>
+       
+   
         <li><%= link_to "New Event", new_event_path %></li>
+         <li><%= link_to "SHOW OTHER EVENTS",events_path(show: "all_users_events") %></li>
+
+
+          
       </ul>
       <ul class="nav navbar-nav navbar-right">
           <% if !@current_user %>

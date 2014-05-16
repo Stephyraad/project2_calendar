@@ -5,9 +5,15 @@ class EventsController < ApplicationController
   def index
     if params[:show] == "all_users_events"
       @events= Event.all
+    elsif params[:future] == "true"
+      @events=Event.where(:user_id => current_user.id, :date.gte => Date.today)
+  	 #@events= current_user.events.all
     else
-  	 @events= current_user.events.all
+    @events=Event.where(:user_id => current_user.id, :date.lt => Date.today)  
     end
+
+    if params[:edit]
+
   end
 
   def new
@@ -21,25 +27,29 @@ class EventsController < ApplicationController
     @event.user = current_user
     if @event.save
       flash[:success]= "Event successfully created"
-    redirect_to events_path
-  else
-    flash[:error]= "Event not yet create! Try Again!"
-    render 'new'
+      redirect_to events_path
+    else
+      flash[:error]= "Event not yet create! Try Again!"
+      render 'new'
+    end
   end
-end
 
   def edit
+   
     @event = Event.find(params[:id])
    
   end
 
   def show
     @event = Event.find(params[:id])
+
+    #@upcoming_event= Event.where("(?)",date) 
+    # @user = @current_user
   end
 
   def update
     @event = Event.find(params[:id])
-    if @event.update(params.require(:event).permit(:date, :input, :location, :event_type))
+    if @event.update(params.require(:event).permit(:date, :input, :location, :address1, :city, :state, :zipcode, :event_type))
       redirect_to events_path
     else
       render 'edit'
@@ -55,8 +65,10 @@ end
     redirect_to events_path
   end
 
- def burrito_params
-    params.require(:burrito).permit(:name, :picture, :ingredient_ids => [])
+  def event_params
+    params.require(:event).permit(:name, :picture)
   end
+
+
 
 end

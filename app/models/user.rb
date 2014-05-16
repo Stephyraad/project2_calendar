@@ -4,6 +4,7 @@ class User
   field :name, type: String
   field :email, type: String
   field :password_digest, type: String
+  #field :is_admin, type: Boolean, default: false
   validates_presence_of :name, :email, :password_digest
   has_many :events 
 
