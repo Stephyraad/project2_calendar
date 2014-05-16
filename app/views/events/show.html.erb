@@ -4,9 +4,14 @@
   <%= @event.date %><br>
   <%= @event.input %><br>
   <%= @event.location%><br>
-  
+  <%= @event.address1%><br>
+  <%= @event.city%><br>
+   <%= @event.state%><br>
+    <%= @event.zipcode%><br>
+     <%= @event.event_type%><br>
 
-  
+
+<%= image_tag @burrito.picture.url %>
 
  <ul><%= link_to "Edit your event", edit_event_path %>
   <%= button_to "Delete", {:action => 'destroy', :id => @event.id }, {:method => :delete, confirm: "Are you sure you want to delete this event"} %></ul>

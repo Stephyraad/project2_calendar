@@ -19,9 +19,14 @@ class EventsController < ApplicationController
     @event= Event.new(params.require(:event).permit(:date, :input, :location, :address1, :city, :state, :zipcode, :event_type))
     #raise @event.inspect
     @event.user = current_user
-    @event.save
+    if @event.save
+      flash[:success]= "Event successfully created"
     redirect_to events_path
+  else
+    flash[:error]= "Event not yet create! Try Again!"
+    render 'new'
   end
+end
 
   def edit
     @event = Event.find(params[:id])
@@ -48,6 +53,10 @@ class EventsController < ApplicationController
     #remove/take out from the burrito from the view
     @event.destroy
     redirect_to events_path
+  end
+
+ def burrito_params
+    params.require(:burrito).permit(:name, :picture, :ingredient_ids => [])
   end
 
 end

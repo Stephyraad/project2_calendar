@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
-
 gem 'mongoid', github: 'mongoid/mongoid'
 gem 'genghis', '~> 1.4.1'
 
@@ -28,6 +27,8 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+
+gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

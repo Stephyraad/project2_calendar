@@ -9,8 +9,10 @@
         <div><strong>Date</strong><br><%= b.date %></div>
         <div><strong>Input</strong><br><%= b.input %></div>
         <div><strong>Location</strong><br><%= b.location %></div>
-        <div><strong>Location</strong><br><%= b.address1%></div>
-        <div><br><%= b.address1%></div>
+        <div><strong>Address</strong><br><%= b.address1%></div>
+        <div><br><%= b.city%></div>
+        <div><br><%= b.state%></div>
+        <div><br><%= b.zipcode%></div>
         <div><strong>Event Type</strong><br><%= b.event_type %></div></br>
         
        <ul><%= link_to "View", event_path(b) %></ul>
@@ -20,3 +22,9 @@
     </li>
   </ul>
 <% end %>
+
+ <script type="text/javascript">
+// document.getElementById("currentevent").onclick= function(){
+	
+// }
+</script>

@@ -1,18 +1,21 @@
 <%= form_for @event do |f| %>
-	Date: <%= f.text_field :date, placeholder: "yyyy/mm//dd", class: 'date-control' %><br><br>
+
+<%#= form_for @burrito, :html => {:multipart => true} do |f| %>
+<%#= f.file_field :picture %>
+
+	Date: <%= f.date_field :date, class: 'date-control' %><br><br>
 	Event: <%= f.text_field :input %><br><br>
 
 	Location: <%= f.text_field :location%><br>
 
 	Address:<br> <%= f.text_field :address1, placeholder: "address line 1" %><br>
 	<%= f.text_field :city, placeholder: "City" %><br>
-	<%= f.text_field :state, placeholder: "State" %><br>
+	<%= f.select :state,[['Select One'],['AK'],['AL'],['AR'],['AZ'],['CA'],['CO'],['CT'],['DE'],['FL'],['GA'],['HI'],['IA'],['ID'],['IL'],['IN'],['KS'],['KY'],['LA'],['MA'],['MD'],['ME'],['MI'],['MN'],['MO'],['MS'],['MT'],['NC'],['ND'],['NE'],['NH'],['NJ'],['NM'],['NV'],['NY'],['OH'],['OK'],['OR'],['PA'],['RI'],['SC'],['SD'],['TN'],['TX'],['UT'],['VA'],['VT'],['WA'],['WI'],['WV'],['WY']] %><br>
 	<%= f.text_field :zipcode, placeholder: "zip code" %><br>
-	
-
 
 
 	<%= f.select :event_type, [['Select One'],['Day Event'],['Night Event']]%><br>
+	<%= f.file_field :picture %>
 
 	<%= f.submit %><br>
 	<div class="back-btn">
