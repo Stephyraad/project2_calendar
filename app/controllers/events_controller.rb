@@ -12,7 +12,7 @@ class EventsController < ApplicationController
     @events=Event.where(:user_id => current_user.id, :date.lt => Date.today)  
     end
 
-    if params[:edit]
+   
 
   end
 
