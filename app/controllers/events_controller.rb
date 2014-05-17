@@ -11,9 +11,6 @@ class EventsController < ApplicationController
     else
     @events=Event.where(:user_id => current_user.id, :date.lt => Date.today)  
     end
-
-   
-
   end
 
   def new
@@ -21,8 +18,7 @@ class EventsController < ApplicationController
   end
 
   def create
-
-    @event= Event.new(params.require(:event).permit(:date, :input, :location, :address1, :city, :state, :zipcode, :event_type))
+    @event= Event.new(params.require(:event).permit(:date, :input, :location, :address1, :city, :state, :zipcode, :event_type, :picture))
     #raise @event.inspect
     @event.user = current_user
     if @event.save
@@ -49,8 +45,8 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    if @event.update(params.require(:event).permit(:date, :input, :location, :address1, :city, :state, :zipcode, :event_type))
-      redirect_to events_path
+    if @event.update(params.require(:event).permit(:date, :input, :location, :address1, :city, :state, :zipcode, :event_type, :picture))
+      redirect_to event_path
     else
       render 'edit'
     end
